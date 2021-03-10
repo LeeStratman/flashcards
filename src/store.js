@@ -1,14 +1,14 @@
-import { createStore, combineReducers } from "redux";
-import { collections } from "./collections/reducers";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { collections, isLoading } from "./collections/reducers";
+import thunk from "redux-thunk";
+import { composeWithDevTools } from "redux-devtools-extension";
 
 const reducers = {
   collections,
+  isLoading,
 };
 
 const rootReducer = combineReducers(reducers);
 
 export const configureStore = () =>
-  createStore(
-    rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  );
+  createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));

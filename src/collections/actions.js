@@ -11,3 +11,19 @@ export const removeCollectio = (id) => ({
   type: REMOVE_COLLECTION,
   payload: { id },
 });
+
+export const LOAD_COLLECTIONS_IN_PROGRESS = "LOAD_COLLECTIONS_IN_PROGRESS";
+export const loadCollectionsInProgress = () => ({
+  type: LOAD_COLLECTIONS_IN_PROGRESS,
+});
+
+export const LOAD_COLLECTIONS_SUCCESS = "LOAD_COLLECTIONS_SUCCESS";
+export const loadCollectionsSuccess = (collections) => ({
+  type: LOAD_COLLECTIONS_SUCCESS,
+  payload: { collections },
+});
+
+export const LOAD_COLLECTIONS_FAILURE = "LOAD_COLLECTIONS_FAILURE";
+export const loadCollectionsFailure = () => ({
+  type: LOAD_COLLECTIONS_FAILURE,
+});
