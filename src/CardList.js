@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import CardListItem from "./CardListItem";
 
 const CardList = ({ cards = [] }) => (
@@ -9,4 +10,8 @@ const CardList = ({ cards = [] }) => (
   </div>
 );
 
-export default CardList;
+const mapStateToProps = (state) => ({
+  cards: state.collections,
+});
+
+export default connect(mapStateToProps)(CardList);

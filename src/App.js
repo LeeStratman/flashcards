@@ -1,5 +1,5 @@
 import CardList from "./CardList";
-import cards from "./utils/testData";
+import NewCollectionForm from "./collections/NewCollectionForm";
 
 function App() {
   return (
@@ -26,7 +26,8 @@ function App() {
         <main>
           <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div className="px-4 py-8 sm:px-0">
-              <CardList cards={cards} />
+              <CardList />
+              <NewCollectionForm />
             </div>
           </div>
         </main>
