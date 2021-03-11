@@ -11,8 +11,8 @@ const CardList = ({ cards = [], isLoading, startLoadingCollections }) => {
   const loadingMessage = <div>Loading collections...</div>;
   const content = (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-      {cards.map((card, index) => (
-        <CardListItem key={index} title={card.name} subtitle={card.name} />
+      {cards.map((card) => (
+        <CardListItem key={card._id} title={card.name} subtitle={card.name} />
       ))}
     </div>
   );
