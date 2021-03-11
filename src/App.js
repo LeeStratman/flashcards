@@ -1,20 +1,32 @@
+import React, { useEffect } from "react";
 import CollectionsView from "./CollectionsView";
-import Content from "./Content";
-import Header from "./Header";
+import CollectionView from "./CollectionView";
 import HeaderBar from "./HeaderBar";
+import { connect } from "react-redux";
+import { loadCollections } from "./collections/thunks";
 
-function App() {
+function App({ activeCollection, startLoadingCollections }) {
+  useEffect(() => {
+    startLoadingCollections();
+  }, [startLoadingCollections]);
   return (
     <div className="min-h-screen bg-gray-100">
       <HeaderBar title="Flashcards" />
-      <div className="py-10">
-        <Header title="Collections" />
-        <Content>
-          <CollectionsView />
-        </Content>
-      </div>
+      {activeCollection ? (
+        <CollectionView collection={activeCollection} />
+      ) : (
+        <CollectionsView />
+      )}
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  activeCollection: state.activeCollection,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  startLoadingCollections: () => dispatch(loadCollections()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
