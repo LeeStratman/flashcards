@@ -1,11 +1,16 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
-import { collections, isLoading } from "./collections/reducers";
+import {
+  collections,
+  isLoading,
+  activeCollection,
+} from "./collections/reducers";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 const reducers = {
   collections,
   isLoading,
+  activeCollection,
 };
 
 const rootReducer = combineReducers(reducers);

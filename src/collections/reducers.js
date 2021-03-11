@@ -4,7 +4,25 @@ import {
   LOAD_COLLECTIONS_IN_PROGRESS,
   LOAD_COLLECTIONS_SUCCESS,
   LOAD_COLLECTIONS_FAILURE,
+  UPDATE_ACTIVE_COLLECTION,
+  REMOVE_ACTIVE_COLLECTION,
 } from "./actions";
+
+export const activeCollection = (state = null, action) => {
+  const { type, payload } = action;
+
+  switch (type) {
+    case UPDATE_ACTIVE_COLLECTION: {
+      const { collection } = payload;
+      return collection;
+    }
+    case REMOVE_ACTIVE_COLLECTION: {
+      return null;
+    }
+    default:
+      return state;
+  }
+};
 
 export const isLoading = (state = false, action) => {
   const { type } = action;

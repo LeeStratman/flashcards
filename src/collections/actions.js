@@ -27,3 +27,14 @@ export const LOAD_COLLECTIONS_FAILURE = "LOAD_COLLECTIONS_FAILURE";
 export const loadCollectionsFailure = () => ({
   type: LOAD_COLLECTIONS_FAILURE,
 });
+
+export const UPDATE_ACTIVE_COLLECTION = "UPDATE_ACTIVE_COLLECTION";
+export const updateActiveCollection = (collection) => ({
+  type: UPDATE_ACTIVE_COLLECTION,
+  payload: { collection },
+});
+
+export const REMOVE_ACTIVE_COLLECTION = "REMOVE_ACTIVE_COLLECTION";
+export const removeActiveCollection = (collection) => ({
+  type: REMOVE_ACTIVE_COLLECTION,
+});
