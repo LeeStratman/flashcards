@@ -2,6 +2,7 @@ import {
   loadCollectionsInProgress,
   loadCollectionsSuccess,
   loadCollectionsFailure,
+  createCollection,
 } from "./actions";
 import axios from "axios";
 
@@ -19,6 +20,22 @@ export const loadCollections = () => async (dispatch, getState) => {
   }
 };
 
-export const displayAlert = (message) => (message) => {
+export const addCollectionRequest = (name) => async (dispatch) => {
+  try {
+    const body = { name };
+
+    const response = await axios.post(
+      "http://localhost:5000/api/collections",
+      body
+    );
+
+    const collection = await response.data;
+    dispatch(createCollection(collection));
+  } catch (err) {
+    dispatch(displayAlert(err));
+  }
+};
+
+export const displayAlert = (message) => () => {
   alert(message);
 };

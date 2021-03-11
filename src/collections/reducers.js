@@ -29,11 +29,9 @@ export const collections = (state = [], action) => {
 
   switch (type) {
     case CREATE_COLLECTION: {
-      const { name } = payload;
-      const newCollection = {
-        name,
-      };
-      return state.concat(newCollection);
+      const { collection } = payload;
+
+      return state.concat(collection);
     }
     case REMOVE_COLLECTION: {
       const { id } = payload;

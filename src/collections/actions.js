@@ -1,8 +1,8 @@
 export const CREATE_COLLECTION = "CREATE_COLLECTION";
-export const createCollection = (name) => ({
+export const createCollection = (collection) => ({
   type: CREATE_COLLECTION,
   payload: {
-    name,
+    collection,
   },
 });
 

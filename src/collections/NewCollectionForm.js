@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { createCollection } from "./actions";
+import { addCollectionRequest } from "./thunks";
 
 const NewCollectionForm = ({ collections, onCreatePressed }) => {
   const [nameValue, setNameValue] = useState("");
@@ -67,7 +67,7 @@ const mapStateToProps = (state) => ({
   collections: state.collections,
 });
 const mapDispatchToProps = (dispatch) => ({
-  onCreatePressed: (name) => dispatch(createCollection(name)),
+  onCreatePressed: (name) => dispatch(addCollectionRequest(name)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewCollectionForm);
