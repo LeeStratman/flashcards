@@ -6,6 +6,14 @@ export const createCollection = (collection) => ({
   },
 });
 
+export const UPDATE_COLLECTION = "UPDATE_COLLECTION";
+export const updateCollection = (collection) => ({
+  type: UPDATE_COLLECTION,
+  payload: {
+    collection,
+  },
+});
+
 export const REMOVE_COLLECTION = "REMOVE_COLLECTION";
 export const removeCollectio = (id) => ({
   type: REMOVE_COLLECTION,

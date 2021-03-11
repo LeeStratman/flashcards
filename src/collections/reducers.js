@@ -1,6 +1,7 @@
 import {
   CREATE_COLLECTION,
   REMOVE_COLLECTION,
+  UPDATE_COLLECTION,
   LOAD_COLLECTIONS_IN_PROGRESS,
   LOAD_COLLECTIONS_SUCCESS,
   LOAD_COLLECTIONS_FAILURE,
@@ -54,6 +55,15 @@ export const collections = (state = [], action) => {
     case REMOVE_COLLECTION: {
       const { id } = payload;
       return state.filter((collection) => collection._id !== id);
+    }
+    case UPDATE_COLLECTION: {
+      const { collection } = payload;
+      return state.map((stateCollection) => {
+        if (stateCollection._id === collection._id) {
+          return collection;
+        }
+        return stateCollection;
+      });
     }
     case LOAD_COLLECTIONS_SUCCESS: {
       const { collections } = payload;

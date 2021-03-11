@@ -7,18 +7,17 @@ const CollectionList = ({
   collections,
   isLoading,
   startLoadingCollections,
-  onButtonClick,
+  onViewClick,
 }) => {
   const loadingMessage = <div>Loading collections...</div>;
 
   const content = (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-      {collections.map((card) => (
+      {collections.map((collection) => (
         <CollectionListItem
-          key={card._id}
-          title={card.name}
-          subtitle={card.name}
-          onButtonClick={() => onButtonClick(card)}
+          key={collection._id}
+          collection={collection}
+          onButtonClick={() => onViewClick(collection)}
         />
       ))}
     </div>
@@ -33,7 +32,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDisptachToProps = (dispatch) => ({
-  onButtonClick: (collection) => dispatch(updateActiveCollection(collection)),
+  onViewClick: (collection) => dispatch(updateActiveCollection(collection)),
 });
 
 export default connect(mapStateToProps, mapDisptachToProps)(CollectionList);

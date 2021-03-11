@@ -3,6 +3,7 @@ import {
   loadCollectionsSuccess,
   loadCollectionsFailure,
   createCollection,
+  updateCollection,
 } from "./actions";
 import axios from "axios";
 
@@ -31,6 +32,23 @@ export const addCollectionRequest = (name) => async (dispatch) => {
 
     const collection = await response.data;
     dispatch(createCollection(collection));
+  } catch (err) {
+    dispatch(displayAlert(err));
+  }
+};
+
+export const updateCollectionRequest = (collection) => async (dispatch) => {
+  const { _id } = collection;
+  const body = { name: collection.name };
+  try {
+    const response = await axios.put(
+      `http://localhost:5000/api/collections/${_id}`,
+      body
+    );
+
+    const updatedCollection = await response.data;
+    console.log(updatedCollection);
+    dispatch(updateCollection(updatedCollection));
   } catch (err) {
     dispatch(displayAlert(err));
   }
