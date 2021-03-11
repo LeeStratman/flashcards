@@ -1,4 +1,4 @@
-import CollectionView from "./CollectionView";
+import CollectionsView from "./CollectionsView";
 import Content from "./Content";
 import Header from "./Header";
 import HeaderBar from "./HeaderBar";
@@ -10,7 +10,7 @@ function App() {
       <div className="py-10">
         <Header title="Collections" />
         <Content>
-          <CollectionView />
+          <CollectionsView />
         </Content>
       </div>
     </div>

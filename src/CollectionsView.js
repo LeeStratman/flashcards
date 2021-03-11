@@ -2,11 +2,11 @@ import React from "react";
 import CardList from "./CardList";
 import NewCollectionForm from "./collections/NewCollectionForm";
 
-const CollectionView = () => (
+const CollectionsView = () => (
   <>
     <CardList />
     <NewCollectionForm />
   </>
 );
 
-export default CollectionView;
+export default CollectionsView;
