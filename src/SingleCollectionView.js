@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Content from "./Content";
-import CollectionHeader from "./CollectionHeader";
+import CollectionHeader from "./Header";
 import FlashcardList from "./flashcards/FlashcardList";
 import StudyView from "./StudyView";
 import Breadcrumbs from "./Breadcrumbs";
