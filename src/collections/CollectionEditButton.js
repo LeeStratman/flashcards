@@ -12,7 +12,6 @@ const CollectionEditButton = ({ collection }) => {
     <>
       <button
         onClick={(e) => {
-          console.log("click");
           setIsOpen(!isOpen);
         }}
         className="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500"

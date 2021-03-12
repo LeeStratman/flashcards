@@ -47,7 +47,7 @@ export const updateCollectionRequest = (collection) => async (dispatch) => {
     );
 
     const updatedCollection = await response.data;
-    console.log(updatedCollection);
+
     dispatch(updateCollection(updatedCollection));
   } catch (err) {
     dispatch(displayAlert(err));

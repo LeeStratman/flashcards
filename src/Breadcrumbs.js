@@ -6,6 +6,7 @@ import BreadcrumbSeparator from "./BreadcrumbSeparator";
 const Breadcrumbs = ({
   activeCollection,
   isStudy = false,
+  setIsStudy,
   removeActiveCollection,
 }) => {
   return (
@@ -16,6 +17,7 @@ const Breadcrumbs = ({
             <button
               onClick={(e) => {
                 removeActiveCollection();
+                setIsStudy(false);
               }}
               className="text-sm font-medium text-gray-500 hover:text-gray-700"
             >
@@ -26,7 +28,10 @@ const Breadcrumbs = ({
         <li>
           <div className="flex items-center">
             <BreadcrumbSeparator />
-            <button className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">
+            <button
+              onClick={() => setIsStudy(false)}
+              className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
+            >
               {activeCollection.name}
             </button>
           </div>
