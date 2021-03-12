@@ -4,7 +4,7 @@ import CollectionHeader from "./CollectionHeader";
 import FlashcardList from "./flashcards/FlashcardList";
 import StudyView from "./StudyView";
 
-const CollectionView = ({ collection }) => {
+const SingleCollectionView = ({ collection }) => {
   const [isStudy, setIsStudy] = useState(true);
 
   const content = isStudy ? (
@@ -23,4 +23,4 @@ const CollectionView = ({ collection }) => {
   return content;
 };
 
-export default CollectionView;
+export default SingleCollectionView;

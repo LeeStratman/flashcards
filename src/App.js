@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import CollectionsView from "./CollectionsView";
-import CollectionView from "./CollectionView";
+import SingleCollectionView from "./SingleCollectionView";
 import HeaderBar from "./HeaderBar";
 import { connect } from "react-redux";
 import { loadCollections } from "./collections/thunks";
@@ -11,14 +11,14 @@ function App({ activeCollection, startLoadingCollections }) {
   }, [startLoadingCollections]);
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <>
       <HeaderBar title="Flashcards" />
       {activeCollection ? (
-        <CollectionView collection={activeCollection} />
+        <SingleCollectionView collection={activeCollection} />
       ) : (
         <CollectionsView />
       )}
-    </div>
+    </>
   );
 }
 
