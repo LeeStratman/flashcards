@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { updateCollectionRequest } from "./thunks";
 
 const EditCollectionForm = ({ collection, close, onSave }) => {
-  const [nameValue, setNameValue] = useState("");
+  const [nameValue, setNameValue] = useState(collection.name);
 
   return (
     <>
@@ -27,6 +27,7 @@ const EditCollectionForm = ({ collection, close, onSave }) => {
               </label>
               <div className="mt-1 sm:mt-0 sm:col-span-2">
                 <input
+                  placeholder={collection.name}
                   value={nameValue}
                   onChange={(e) => setNameValue(e.target.value)}
                   type="text"
