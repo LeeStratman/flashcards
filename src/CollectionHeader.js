@@ -59,7 +59,7 @@ const CollectionHeader = ({ collection, title, removeActiveCollection }) => {
                   />
                 </svg>
                 <button className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">
-                  {title}
+                  {collection.name}
                 </button>
               </div>
             </li>
@@ -69,7 +69,7 @@ const CollectionHeader = ({ collection, title, removeActiveCollection }) => {
       <div className="mt-2 md:flex md:items-center md:justify-between">
         <div className="flex-1 min-w-0">
           <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
-            {title}
+            Flashcards
           </h2>
         </div>
         <div className="mt-4 flex-shrink-0 flex md:mt-0 md:ml-4">
