@@ -34,7 +34,7 @@ const FlashcardEditForm = ({ collectionId, flashcard, close, onSave }) => {
                   onChange={(e) => setQuestion(e.target.value)}
                   type="text"
                   name="flashcard_question"
-                  className="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+                  className="input-text"
                 />
               </div>
             </div>
@@ -52,7 +52,7 @@ const FlashcardEditForm = ({ collectionId, flashcard, close, onSave }) => {
                   onChange={(e) => setAnswer(e.target.value)}
                   type="text"
                   name="flashcard_answer"
-                  className="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+                  className="input-text"
                 />
               </div>
             </div>
