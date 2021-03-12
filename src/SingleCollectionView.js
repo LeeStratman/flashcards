@@ -8,19 +8,17 @@ const SingleCollectionView = ({ collection }) => {
   const [isStudy, setIsStudy] = useState(true);
 
   const content = isStudy ? (
-    <div className="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <StudyView collection={collection} />
-    </div>
+    <StudyView collection={collection} />
   ) : (
-    <div className="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <>
       <CollectionHeader title="Flashcards" collection={collection} />
       <Content>
         <FlashcardList collection={collection} />
       </Content>
-    </div>
+    </>
   );
 
-  return content;
+  return <div className="py-10 container">{content}</div>;
 };
 
 export default SingleCollectionView;

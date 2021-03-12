@@ -5,7 +5,7 @@ import CollectionList from "./collections/CollectionList";
 import NewCollectionForm from "./collections/NewCollectionForm";
 
 const CollectionsView = () => (
-  <div className="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div className="py-10 container">
     <Header title="Collections" />
     <Content>
       <CollectionList />
