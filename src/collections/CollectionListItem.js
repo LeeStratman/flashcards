@@ -11,7 +11,9 @@ const CollectionListItem = ({ collection, onButtonClick }) => {
               {collection.name}
             </h3>
           </div>
-          <p className="mt-1 text-gray-500 text-sm truncate">Description</p>
+          <p className="mt-1 text-gray-500 text-sm truncate">
+            Flashcards: {collection.flashcards.length}
+          </p>
         </div>
       </div>
       <div>
