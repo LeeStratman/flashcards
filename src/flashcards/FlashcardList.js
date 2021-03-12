@@ -6,7 +6,11 @@ const FlashcardList = ({ collection }) => {
     collection.flashcards.length > 0 ? (
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {collection.flashcards.map((flashcard) => (
-          <FlashcardListItem key={flashcard._id} flashcard={flashcard} />
+          <FlashcardListItem
+            key={flashcard._id}
+            collectionId={collection._id}
+            flashcard={flashcard}
+          />
         ))}
       </div>
     ) : (
