@@ -9,6 +9,7 @@ function App({ activeCollection, startLoadingCollections }) {
   useEffect(() => {
     startLoadingCollections();
   }, [startLoadingCollections]);
+
   return (
     <div className="min-h-screen bg-gray-100">
       <HeaderBar title="Flashcards" />
