@@ -5,7 +5,7 @@ import FlashcardAddButton from "./flashcards/FlashcardAddButton";
 
 const CollectionHeader = ({ collection, title, removeActiveCollection }) => {
   return (
-    <div className="max-w-7xl mb-4 mx-auto px-4 sm:px-6 lg:px-8">
+    <>
       <div>
         <nav className="sm:hidden" aria-label="Back">
           <button
@@ -77,7 +77,7 @@ const CollectionHeader = ({ collection, title, removeActiveCollection }) => {
           <FlashcardAddButton collection={collection} />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
