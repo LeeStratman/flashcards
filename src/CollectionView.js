@@ -4,7 +4,7 @@ import CollectionHeader from "./CollectionHeader";
 import FlashcardList from "./flashcards/FlashcardList";
 
 const CollectionView = ({ collection }) => (
-  <div className="py-10 max-w-7xl mx-auto sm:px-6 lg:px-8">
+  <div className="py-10">
     <CollectionHeader title="Flashcards" collection={collection} />
     <Content>
       <FlashcardList collection={collection} />
