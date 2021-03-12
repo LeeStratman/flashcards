@@ -32,4 +32,8 @@
   .input-txt {
     @apply max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md text-gray-700;
   }
+
+  .input-error {
+    @apply pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500;
+  }
 }
