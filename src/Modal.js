@@ -54,7 +54,7 @@ const Modal = ({ open, close, children }) => {
           aria-modal="true"
           aria-labelledby="modal-headline"
         >
-          <div class="hidden sm:block absolute top-0 right-0 pt-4 pr-4">
+          <div className="hidden sm:block absolute top-0 right-0 pt-4 pr-4">
             <button
               onClick={close}
               type="button"
@@ -63,7 +63,7 @@ const Modal = ({ open, close, children }) => {
               <span className="sr-only">Close</span>
 
               <svg
-                class="h-6 w-6"
+                className="h-6 w-6"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
