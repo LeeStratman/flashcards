@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import CollectionsView from "./CollectionsView";
-import SingleCollectionView from "./SingleCollectionView";
-import HeaderBar from "./HeaderBar";
 import { connect } from "react-redux";
 import { loadCollections } from "./collections/thunks";
+import HeaderBar from "./HeaderBar";
+import SingleCollectionView from "./SingleCollectionView";
+import CollectionsView from "./CollectionsView";
 
 function App({ activeCollection, startLoadingCollections }) {
   useEffect(() => {
