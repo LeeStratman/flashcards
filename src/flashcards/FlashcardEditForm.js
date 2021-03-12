@@ -10,7 +10,7 @@ const FlashcardEditForm = ({ collectionId, flashcard, close, onSave }) => {
   return (
     <>
       <div className="space-y-8 divide-y divide-gray-200 sm:space-y-5">
-        <div className="pt-8 space-y-6 sm:pt-10 sm:space-y-5">
+        <div className="space-y-6 sm:space-y-5">
           <div>
             <h3 className="text-lg leading-6 font-medium text-gray-900">
               Edit Flashcard
@@ -37,8 +37,6 @@ const FlashcardEditForm = ({ collectionId, flashcard, close, onSave }) => {
                   className="input-txt"
                 />
               </div>
-            </div>
-            <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
               <label
                 htmlFor="flashcard_answer"
                 className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
