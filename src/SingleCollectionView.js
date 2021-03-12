@@ -19,11 +19,12 @@ const SingleCollectionView = ({ collection }) => {
   return (
     <div className="py-10 container">
       <Breadcrumbs isStudy={isStudy} setIsStudy={setIsStudy} />
-      <CollectionHeader title="Flashcards">
+      <CollectionHeader title={collection.name}>
         <FlashcardAddButton collection={collection} />
         <FlashcardStudyButton
           isStudy={isStudy}
           setIsStudy={() => setIsStudy(!isStudy)}
+          disabled={collection.flashcards.length > 0 ? false : true}
         />
       </CollectionHeader>
       <Content>{content}</Content>

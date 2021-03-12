@@ -32,7 +32,7 @@ const Breadcrumbs = ({
               onClick={() => setIsStudy(false)}
               className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
             >
-              {activeCollection.name}
+              Flashcards
             </button>
           </div>
         </li>
