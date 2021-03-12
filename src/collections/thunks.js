@@ -4,6 +4,7 @@ import {
   loadCollectionsFailure,
   createCollection,
   updateCollection,
+  removeCollection,
 } from "./actions";
 import axios from "axios";
 
@@ -51,6 +52,20 @@ export const updateCollectionRequest = (collection) => async (dispatch) => {
     dispatch(updateCollection(updatedCollection));
   } catch (err) {
     dispatch(displayAlert(err));
+  }
+};
+
+export const removeCollectionRequest = (id) => async (dispatch) => {
+  try {
+    const response = await axios.delete(
+      `http://localhost:5000/api/collections/${id}`
+    );
+
+    const deletedId = await response.data;
+
+    dispatch(removeCollection(deletedId));
+  } catch (err) {
+    dispatch(displayAlert);
   }
 };
 

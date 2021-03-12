@@ -15,7 +15,7 @@ export const updateCollection = (collection) => ({
 });
 
 export const REMOVE_COLLECTION = "REMOVE_COLLECTION";
-export const removeCollectio = (id) => ({
+export const removeCollection = (id) => ({
   type: REMOVE_COLLECTION,
   payload: { id },
 });

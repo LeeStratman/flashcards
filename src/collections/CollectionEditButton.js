@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "../Modal";
 import CollectionEditForm from "./CollectionEditForm";
+import CollectionRemoveForm from "./CollectionRemoveForm";
 
 const CollectionEditButton = ({ collection }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,6 +35,7 @@ const CollectionEditButton = ({ collection }) => {
       </button>
       <Modal open={isOpen} close={close}>
         <CollectionEditForm close={close} collection={collection} />
+        <CollectionRemoveForm close={close} collection={collection} />
       </Modal>
     </>
   );
