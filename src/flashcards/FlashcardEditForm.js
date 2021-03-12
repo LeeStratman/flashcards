@@ -34,7 +34,7 @@ const FlashcardEditForm = ({ collectionId, flashcard, close, onSave }) => {
                   onChange={(e) => setQuestion(e.target.value)}
                   type="text"
                   name="flashcard_question"
-                  className="input-text"
+                  className="input-txt"
                 />
               </div>
             </div>
@@ -52,7 +52,7 @@ const FlashcardEditForm = ({ collectionId, flashcard, close, onSave }) => {
                   onChange={(e) => setAnswer(e.target.value)}
                   type="text"
                   name="flashcard_answer"
-                  className="input-text"
+                  className="input-txt"
                 />
               </div>
             </div>

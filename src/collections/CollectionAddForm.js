@@ -32,7 +32,7 @@ const CollectionAddForm = ({ collections, close, onSave }) => {
                   type="text"
                   name="collection_name"
                   id="collection_name"
-                  className="input-text"
+                  className="input-txt"
                 />
               </div>
             </div>

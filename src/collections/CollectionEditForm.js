@@ -32,7 +32,7 @@ const EditCollectionForm = ({ collection, close, onSave }) => {
                   onChange={(e) => setNameValue(e.target.value)}
                   type="text"
                   name="collection_name"
-                  className="input-text"
+                  className="input-txt"
                 />
               </div>
             </div>

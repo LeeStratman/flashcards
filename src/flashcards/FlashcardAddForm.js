@@ -33,7 +33,7 @@ const FlashcardAddForm = ({ collection, close, onSave }) => {
                   type="text"
                   name="flashcard_question"
                   id="flashcard_question"
-                  className="input-text"
+                  className="input-txt"
                 />
               </div>
             </div>
@@ -51,7 +51,7 @@ const FlashcardAddForm = ({ collection, close, onSave }) => {
                   type="text"
                   name="flashcard_answer"
                   id="flashcard_answer"
-                  className="input-text"
+                  className="input-txt"
                 />
               </div>
             </div>
