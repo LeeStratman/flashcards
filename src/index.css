@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h2 {
+    @apply text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate;
+  }
+}
+
 @layer components {
   #root {
     @apply min-h-screen bg-gray-100;
