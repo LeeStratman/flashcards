@@ -1,15 +1,16 @@
 import React from "react";
-import CollectionHeader from "./Header";
+import Header from "./Header";
 import Content from "./Content";
 import CollectionList from "./collections/CollectionList";
-import NewCollectionForm from "./collections/NewCollectionForm";
+import CollectionAddButton from "./collections/CollectionAddButton";
 
 const CollectionsView = () => (
   <div className="py-10 container">
-    <CollectionHeader title="Collections" />
+    <Header title="Collections">
+      <CollectionAddButton />
+    </Header>
     <Content>
       <CollectionList />
-      <NewCollectionForm />
     </Content>
   </div>
 );

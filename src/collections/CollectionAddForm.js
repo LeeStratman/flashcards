@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addCollectionRequest } from "./thunks";
 
-const NewCollectionForm = ({ collections, onCreatePressed }) => {
+const CollectionAddForm = ({ collections, close, onSave }) => {
   const [nameValue, setNameValue] = useState("");
 
   return (
@@ -49,8 +49,9 @@ const NewCollectionForm = ({ collections, onCreatePressed }) => {
           </button>
           <button
             onClick={() => {
-              onCreatePressed(nameValue);
+              onSave(nameValue);
               setNameValue("");
+              close();
             }}
             type="submit"
             className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -67,7 +68,7 @@ const mapStateToProps = (state) => ({
   collections: state.collections,
 });
 const mapDispatchToProps = (dispatch) => ({
-  onCreatePressed: (name) => dispatch(addCollectionRequest(name)),
+  onSave: (name) => dispatch(addCollectionRequest(name)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewCollectionForm);
+export default connect(mapStateToProps, mapDispatchToProps)(CollectionAddForm);
