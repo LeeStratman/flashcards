@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "../Modal";
 import FlashcardEditForm from "../flashcards/FlashcardEditForm";
+import FlashcardRemoveForm from "./FlashcardRemoveForm";
 
 const FlashcardListItem = ({ collectionId, flashcard }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,6 +24,11 @@ const FlashcardListItem = ({ collectionId, flashcard }) => {
         </button>
         <Modal open={isOpen} close={close}>
           <FlashcardEditForm
+            close={close}
+            collectionId={collectionId}
+            flashcard={flashcard}
+          />
+          <FlashcardRemoveForm
             close={close}
             collectionId={collectionId}
             flashcard={flashcard}
