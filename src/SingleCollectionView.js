@@ -20,7 +20,7 @@ const SingleCollectionView = ({ collection }) => {
     <div className="py-10 container">
       <Breadcrumbs isStudy={isStudy} setIsStudy={setIsStudy} />
       <CollectionHeader title={collection.name}>
-        <FlashcardAddButton collection={collection} />
+        {!isStudy && <FlashcardAddButton collection={collection} />}
         <FlashcardStudyButton
           isStudy={isStudy}
           setIsStudy={() => setIsStudy(!isStudy)}
