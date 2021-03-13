@@ -60,7 +60,7 @@ const Modal = ({ open, close, children }) => {
               </svg>
             </button>
           </div>
-          {children}
+          {open && children}
         </div>
       </div>
     </div>
