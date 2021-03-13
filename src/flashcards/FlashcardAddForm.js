@@ -5,6 +5,27 @@ import { createFlashcardRequest } from "./thunks";
 const FlashcardAddForm = ({ collection, close, onSave }) => {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
+  const [questionError, setQuestionError] = useState(false);
+  const [answerError, setAnswerError] = useState(false);
+
+  const answerErrorClass = answerError ? "input-error" : "";
+  const questionErrorClass = questionError ? "input-error" : "";
+
+  const updateQuestion = (question) => {
+    isEmptyStr(question) ? setQuestionError(true) : setQuestionError(false);
+
+    setQuestion(question);
+  };
+
+  const updateAnswer = (answer) => {
+    isEmptyStr(answer) ? setAnswerError(true) : setAnswerError(false);
+
+    setAnswer(answer);
+  };
+
+  const isEmptyStr = (str) => {
+    return str.trim() === "" ? true : false;
+  };
 
   return (
     <>
@@ -27,17 +48,49 @@ const FlashcardAddForm = ({ collection, close, onSave }) => {
                 Question
               </label>
               <div className="mt-1 sm:mt-0 sm:col-span-2">
-                <input
-                  value={question}
-                  onChange={(e) => setQuestion(e.target.value)}
-                  type="text"
-                  name="flashcard_question"
-                  id="flashcard_question"
-                  className="input-txt"
-                />
+                <div className="relative">
+                  <input
+                    value={question}
+                    onChange={(e) => updateQuestion(e.target.value)}
+                    type="text"
+                    name="flashcard_question"
+                    id="flashcard_question"
+                    className={`input-txt ${questionErrorClass}`}
+                  />
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    {questionError ? (
+                      <svg
+                        className="h-5 w-5 text-red-500"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    ) : (
+                      <svg
+                        className="h-5 w-5 text-indigo-500"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    )}
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
               <label
                 htmlFor="flashcard_answer"
                 className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
@@ -45,14 +98,48 @@ const FlashcardAddForm = ({ collection, close, onSave }) => {
                 Answer
               </label>
               <div className="mt-1 sm:mt-0 sm:col-span-2">
-                <input
-                  value={answer}
-                  onChange={(e) => setAnswer(e.target.value)}
-                  type="text"
-                  name="flashcard_answer"
-                  id="flashcard_answer"
-                  className="input-txt"
-                />
+                <div className="relative">
+                  <input
+                    value={answer}
+                    onChange={(e) => updateAnswer(e.target.value)}
+                    type="text"
+                    name="flashcard_answer"
+                    id="flashcard_answer"
+                    className={`input-txt ${answerErrorClass}`}
+                  />
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    {answerError ? (
+                      <svg
+                        className="h-5 w-5 text-red-500"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    ) : (
+                      <svg
+                        className="h-5 w-5 text-indigo-500"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -62,13 +149,23 @@ const FlashcardAddForm = ({ collection, close, onSave }) => {
         <div className="flex justify-end">
           <button
             onClick={(e) => {
+              close(e);
+            }}
+            type="button"
+            className="btn-secondary"
+          >
+            Cancel
+          </button>
+          <button
+            disabled={isEmptyStr(answer) || isEmptyStr(question)}
+            onClick={(e) => {
               onSave(collection._id, { question, answer });
               setQuestion("");
               setAnswer("");
               close(e);
             }}
             type="submit"
-            className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="btn-primary"
           >
             Save
           </button>
