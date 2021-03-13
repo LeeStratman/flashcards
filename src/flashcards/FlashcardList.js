@@ -1,5 +1,6 @@
 import React from "react";
 import FlashcardListItem from "./FlashcardListItem";
+import WarningMessage from "../WarningMessage";
 
 const FlashcardList = ({ collection }) => {
   const content =
@@ -14,10 +15,10 @@ const FlashcardList = ({ collection }) => {
         ))}
       </div>
     ) : (
-      <p>
-        No flashcards exist in this collection. Please add a flashcard to get
-        started.
-      </p>
+      <WarningMessage
+        message="No flashcards exist in this collection. Please add a flashcard to get
+      started."
+      />
     );
   return content;
 };
