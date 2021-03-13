@@ -19,7 +19,10 @@ const FlashcardListItem = ({ collectionId, flashcard }) => {
         >
           <span className="absolute inset-0" aria-hidden="true"></span>
           <p className="text-sm font-medium text-gray-900">
-            {flashcard.question}
+            Q: {flashcard.question}
+          </p>
+          <p className="text-left mt-1 text-gray-500 text-sm truncate">
+            A: {flashcard.answer}
           </p>
         </button>
         <Modal open={isOpen} close={close}>

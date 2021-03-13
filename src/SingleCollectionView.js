@@ -27,6 +27,9 @@ const SingleCollectionView = ({ collection }) => {
           disabled={collection.flashcards.length > 0 ? false : true}
         />
       </CollectionHeader>
+      <p className="mt-1 text-gray-500 text-sm truncate">
+        Flashcards: {collection.flashcards.length}
+      </p>
       <Content>{content}</Content>
     </div>
   );
