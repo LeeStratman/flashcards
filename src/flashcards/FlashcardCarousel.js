@@ -23,8 +23,8 @@ const FlashcardCarousel = ({ collection }) => {
 
   return (
     <>
-      <p className="mt-1 text-gray-500 text-sm truncate">
-        {activeFlashcard + 1}/{flashcards.length}
+      <p className="mt-1 mb-3 text-center text-gray-500 text-sm truncate">
+        {activeFlashcard + 1} / {flashcards.length}
       </p>
       <Flashcard
         flashcard={flashcards[activeFlashcard]}

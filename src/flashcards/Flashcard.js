@@ -8,9 +8,9 @@ const Flashcard = ({ flashcard, next, prev }) => {
 
   return (
     <>
-      <div className="bg-white shadow sm:rounded-lg">
-        <div className="px-4 py-5 sm:p-6">
-          <h3 className="text-3xl leading-6 font-medium text-gray-900 text-center">
+      <div className="bg-white shadow sm:rounded-lg max-w-xl m-auto h-80">
+        <div className="flex justify-center px-4 py-5 sm:p-6 h-full">
+          <h3 className="my-auto text-3xl leading-6 font-medium text-gray-900 text-center">
             {text}
           </h3>
         </div>
