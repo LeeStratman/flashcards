@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import CollectionListItem from "./CollectionListItem";
 import { updateActiveCollection } from "./actions";
 import WarningMessage from "../WarningMessage";
+import InfoMessage from "../InfoMessage";
 
 const CollectionList = ({
   collections,
@@ -10,7 +11,9 @@ const CollectionList = ({
   startLoadingCollections,
   onViewClick,
 }) => {
-  const loadingMessage = <div>Loading collections...</div>;
+  const loadingMessage = (
+    <InfoMessage message="Your collections are loading..." />
+  );
   const haveCollections = collections.length > 0 ? true : false;
 
   const content = (
