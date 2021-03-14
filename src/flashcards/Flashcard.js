@@ -2,23 +2,33 @@ import React, { useState } from "react";
 
 const Flashcard = ({ flashcard, next, prev }) => {
   const [showQuestion, setShowQuestion] = useState(true);
-
-  const text = showQuestion ? flashcard.question : flashcard.answer;
   const buttonText = showQuestion ? "SHOW ANSWER" : "SHOW QUESTION";
+
+  const rotateClass = showQuestion ? "" : "rotate";
 
   return (
     <>
-      <div className="bg-white shadow sm:rounded-lg max-w-xl m-auto h-80">
-        <div className="flex justify-center px-4 py-5 sm:p-6 h-full">
-          <h3 className="my-auto text-3xl leading-6 font-medium text-gray-900 text-center">
-            {text}
-          </h3>
+      <div className="flip-card">
+        <div className={`flip-card-inner max-w-xl m-auto h-80 ${rotateClass}`}>
+          <div className="flip-card-front flex justify-center px-4 py-5 sm:p-6 h-full shadow sm:rounded-lg">
+            <h3 className="my-auto text-3xl leading-6 font-medium text-gray-900 text-center">
+              {flashcard.question}
+            </h3>
+          </div>
+          <div className="flip-card-back flex justify-center px-4 py-5 sm:p-6 h-full shadow sm:rounded-lg">
+            <h3 className="my-auto text-3xl leading-6 font-medium text-gray-900 text-center">
+              {flashcard.answer}
+            </h3>
+          </div>
         </div>
       </div>
       <div className="mt-5 text-center">
         <span className="relative z-0 inline-flex shadow-sm rounded-md">
           <button
-            onClick={() => prev()}
+            onClick={() => {
+              prev();
+              setShowQuestion(true);
+            }}
             type="button"
             className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
           >
@@ -45,7 +55,10 @@ const Flashcard = ({ flashcard, next, prev }) => {
             {buttonText}
           </button>
           <button
-            onClick={() => next()}
+            onClick={() => {
+              next();
+              setShowQuestion(true);
+            }}
             type="button"
             className="-ml-px relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
           >

@@ -18,7 +18,7 @@ const FlashcardListItem = ({ collectionId, flashcard }) => {
           className="focus:outline-none"
         >
           <span className="absolute inset-0" aria-hidden="true"></span>
-          <p className="text-sm font-medium text-gray-900">
+          <p className="text-left text-sm font-medium text-gray-900">
             Q: {flashcard.question}
           </p>
           <p className="text-left mt-1 text-gray-500 text-sm truncate">
