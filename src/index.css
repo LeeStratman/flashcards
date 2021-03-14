@@ -66,6 +66,7 @@
 
   .flip-card-front,
   .flip-card-back {
+    @apply flex justify-center px-4 py-5 sm:p-6 h-full shadow sm:rounded-lg;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -79,5 +80,9 @@
   .flip-card-back {
     @apply bg-indigo-300;
     transform: rotateY(180deg);
+  }
+
+  .flip-card-text {
+    @apply my-auto text-3xl leading-6 font-medium text-gray-900 text-center;
   }
 }
