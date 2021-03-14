@@ -6,9 +6,10 @@ import CollectionRemoveForm from "./CollectionRemoveForm";
 const CollectionEditButton = ({ collection }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const close = (e) => {
+  const close = () => {
     setIsOpen(false);
   };
+
   return (
     <>
       <button

@@ -4,6 +4,18 @@ import { updateCollectionRequest } from "./thunks";
 
 const EditCollectionForm = ({ collection, close, onSave }) => {
   const [nameValue, setNameValue] = useState(collection.name);
+  const [nameError, setNameError] = useState(false);
+  const errorClass = nameError ? "input-error" : "";
+
+  const updateName = (name) => {
+    if (name.trim() === "") {
+      setNameError(true);
+    } else {
+      setNameError(false);
+    }
+
+    setNameValue(name);
+  };
 
   return (
     <>
@@ -26,14 +38,47 @@ const EditCollectionForm = ({ collection, close, onSave }) => {
                 Name
               </label>
               <div className="mt-1 sm:mt-0 sm:col-span-2">
-                <input
-                  placeholder={collection.name}
-                  value={nameValue}
-                  onChange={(e) => setNameValue(e.target.value)}
-                  type="text"
-                  name="collection_name"
-                  className="input-txt"
-                />
+                <div className="relative">
+                  <input
+                    value={nameValue}
+                    onChange={(e) => updateName(e.target.value)}
+                    type="text"
+                    name="collection_name"
+                    className={`input-txt ${errorClass}`}
+                  />
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    {nameError ? (
+                      <svg
+                        className="h-5 w-5 text-red-500"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    ) : (
+                      <svg
+                        className="h-5 w-5 text-indigo-500"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -42,13 +87,23 @@ const EditCollectionForm = ({ collection, close, onSave }) => {
       <div className="pt-5">
         <div className="flex justify-end">
           <button
-            onClick={(e) => {
-              onSave({ _id: collection._id, name: nameValue });
+            onClick={() => {
+              close();
+            }}
+            type="button"
+            className="btn-secondary"
+          >
+            Cancel
+          </button>
+          <button
+            disabled={nameValue !== "" ? false : true}
+            onClick={() => {
+              onSave({ _id: collection._id, name: nameValue.trim() });
               setNameValue("");
-              close(e);
+              close();
             }}
             type="submit"
-            className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="btn-primary"
           >
             Save
           </button>
