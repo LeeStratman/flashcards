@@ -17,7 +17,7 @@ const CollectionEditButton = ({ collection }) => {
         onClick={(e) => {
           setIsOpen(!isOpen);
         }}
-        className="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500"
+        className="btn-list-item"
       >
         <Pencil />
         <span className="ml-3">Edit</span>

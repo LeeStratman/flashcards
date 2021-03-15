@@ -22,7 +22,7 @@ const CollectionListItem = ({ collection, onButtonClick }) => {
           <div className="w-0 flex-1 flex">
             <button
               onClick={(e) => onButtonClick()}
-              className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500"
+              className="btn-list-item -mr-px"
             >
               <Eye />
               <span className="ml-3">View</span>
