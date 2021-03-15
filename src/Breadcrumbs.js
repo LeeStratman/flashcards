@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { removeActiveCollection } from "./collections/actions";
-import BreadcrumbSeparator from "./BreadcrumbSeparator";
+import { BreadcrumbSeparator } from "./icons";
 
 const Breadcrumbs = ({
   activeCollection,
