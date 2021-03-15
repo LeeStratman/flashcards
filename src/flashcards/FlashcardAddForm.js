@@ -159,7 +159,10 @@ const FlashcardAddForm = ({ collection, close, onSave }) => {
           <button
             disabled={isEmptyStr(answer) || isEmptyStr(question)}
             onClick={(e) => {
-              onSave(collection._id, { question, answer });
+              onSave(collection._id, {
+                question: question.trim(),
+                answer: answer.trim(),
+              });
               setQuestion("");
               setAnswer("");
               close(e);
