@@ -85,4 +85,16 @@
   .flip-card-text {
     @apply my-auto text-3xl leading-6 font-medium text-gray-900 text-center;
   }
+
+  .form-title {
+    @apply text-lg leading-6 font-medium text-gray-900;
+  }
+
+  .form-description {
+    @apply mt-1 max-w-2xl text-sm text-gray-500;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2;
+  }
 }

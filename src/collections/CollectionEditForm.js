@@ -23,19 +23,14 @@ const EditCollectionForm = ({ collection, close, onSave }) => {
       <div className="space-y-8 divide-y divide-gray-200 sm:space-y-5">
         <div className="space-y-6 sm:space-y-5">
           <div>
-            <h3 className="text-lg leading-6 font-medium text-gray-900">
-              Edit Collection
-            </h3>
-            <p className="mt-1 max-w-2xl text-sm text-gray-500">
+            <h3 className="form-title">Edit Collection</h3>
+            <p className="form-description">
               Please enter a name for the collection.
             </p>
           </div>
           <div className="space-y-6 sm:space-y-5">
             <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-              <label
-                htmlFor="collection_name"
-                className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
-              >
+              <label htmlFor="collection_name" className="form-label">
                 Name
               </label>
               <div className="mt-1 sm:mt-0 sm:col-span-2">
